@@ -1,0 +1,31 @@
+.uk-card {
+    border-radius: 10px;
+    margin-top: 5px;
+    font-size: large;
+    background-color: #3f3d3b;
+    color: white;
+}
+
+.uk-button {
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.uk-button:hover {
+    background-color: white !important;
+    color: black !important;
+}
+
+.uk-input {
+    border-radius: 10px;
+}
+
+.search-forecast {
+    background-color: #3f3d3b;
+    color: white;
+}
+
+.city:hover {
+    background-color: white !important;
+    color: black !important;
+}
