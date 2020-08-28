@@ -3,7 +3,7 @@
     margin: 5px;
     margin-bottom: 5px;
     font-size: large;
-    /* background-color: #3f3d3b; */
+    /* background-color: rgb(234, 238, 202); */
     /* color: white; */
 }
 
@@ -31,8 +31,17 @@
     color: black !important;
 }
 
-.weather-icon {
-    size: 10px !important;
+.current-weather-icon {
+    background-color: rgb(224, 206, 183);
+}
+
+.forecast-weather-icon {
+    background-color: rgb(224, 206, 183);
+}
+
+.pcards {
+    background-color: #3f3d3b;
+    color: white;
 }
 
 #weather-header {

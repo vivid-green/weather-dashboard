@@ -49,8 +49,8 @@ function setForecastBody() {
     return forecastElements;
 }
 
-function buildForecastBody(dataForecastRow) {
-
+function buildForecastBody(index,dataForecastRow, forecastStats) {
+    console.log(index);
     let forecastElements = setForecastBody();
     let cardContainerDiv = $("<div>");
     let forecastRow = $("#forecast-row-" + dataForecastRow);
@@ -63,23 +63,33 @@ function buildForecastBody(dataForecastRow) {
     cardDiv.append(cardHeadDiv);
     let cardGridDiv = forecastElements.cardGridDiv();
     cardHeadDiv.append(cardGridDiv);
+
+
+    let forecastIconImg = $("<img class='forecast-weather-icon uk-border-rounded' width='45' height='45'>");
+    let forecastIcon = forecastStats[index]["Icon"];
+    forecastIconImg.attr("src", "http://openweathermap.org/img/wn/" + forecastIcon + "@2x.png");
     let titleDtDiv = forecastElements.titleDtDiv();
-    titleDtDiv.text("hello");
+    titleDtDiv.text(forecastStats[index]["Date"] + "  ");
     cardGridDiv.append(titleDtDiv);
+    titleDtDiv.append(forecastIconImg);
     let cardBodyDiv = forecastElements.cardBodyDiv();
     cardDiv.append(cardBodyDiv);
+    cardBodyDiv.append($("<p>" + "High: " + forecastStats[index]["High"] + "</p>"));
+    cardBodyDiv.append($("<p>" + "Low: " + forecastStats[index]["Low"] + "</p>"));
+    cardBodyDiv.append($("<p>" + "Humidity: " + forecastStats[index]["Humidity"] + "</p>"));
+    cardBodyDiv.append($("<p>" + "Wind Speed: " + forecastStats[index]["Wind Speed"] + "</p>"));
 }
 
 function setForecast(forecastData) {
     console.log(forecastData);
     console.log(forecastData.current);
     let date = moment.unix(forecastData.current.dt).format("LL");
-    let iconImg = $("<img class='current-weather-icon' width='45' height='45'>");
+    let iconImg = $("<img class='current-weather-icon uk-border-rounded' width='45' height='45'>");
     let icon = forecastData.current.weather[0].icon;
     iconImg.attr("src", "http://openweathermap.org/img/wn/" + icon + "@2x.png");
     let title = $(".current-title-dt h3");
     let city = $("#city").val().trim().toUpperCase();
-    title.text(city);
+    title.text(city + "  ");
     title.append(iconImg);
     $(".current-title").text(date);
     let currentStats = {
@@ -110,6 +120,7 @@ function setForecast(forecastData) {
     console.log(forecastStats);
     // let forecastElements = setForecastBody();
     // console.log(forecastElements);
+    $(".forecast").empty();
     $.each(forecastStats,function(index,value) {
         if(index === "1" || index === "4") {
             let forecastDiv = $(".forecast");
@@ -119,7 +130,10 @@ function setForecast(forecastData) {
        
         if(index < 4) {
             let dataForecastRow = "1";
-            buildForecastBody(dataForecastRow);
+            buildForecastBody(index,dataForecastRow,forecastStats);
+        } else {
+            let dataForecastRow = "4";
+            buildForecastBody(index,dataForecastRow,forecastStats);
         }
     });
 
