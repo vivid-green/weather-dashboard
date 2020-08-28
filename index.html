@@ -33,7 +33,7 @@
             <button class="uk-offcanvas-close" type="button" uk-close></button>
             <form class="example">
                 <div class="uk-margin">
-                    <input id="city" class="uk-input city" type="text" placeholder="Input" value="Salt Lake City">
+                    <input id="city" class="uk-input city" type="text" placeholder="Input" value="SALT LAKE CITY">
                     <button type="submit" class="uk-button uk-button-default uk-margin-small-bottom"><i class="fas fa-search"></i></button>
                 </div>
                 <button class="uk-button uk-button-default uk-width-1-1"><i class="fas fa-city"></i> Atlanta</button>
@@ -57,78 +57,115 @@
         </div>
     </div>
     <hr>
-    <div class="forecast" style="display: none;">
-        <h2 id="weather-header">6 Day Forecast</h2>
-        <div class="uk-grid-small uk-child-width-expand@s uk-text-center uk-margin-small-bottom forecast-1-3" uk-grid>
+    <div class="forecast">
+        <!-- <h2 id="weather-header">6 Day Forecast</h2> -->
+        <!-- <hr> -->
+        <!-- <div class="uk-grid-small uk-child-width-expand@s uk-text-center uk-margin-small-bottom forecast-1-3" uk-grid>
             <div>
-                <div class="uk-card uk-card-default uk-card-body uk-box-shadow-xlarge">
-                    <div class="uk-width-expand forecast-title-dt">
-                        <h3 class="uk-card-title uk-margin-remove-bottom"></h3>  
-                        <p class="uk-text-meta uk-margin-remove-top forecast-title"></p>
-                    </div>
-                    <hr>
-                    <div class="uk-card-body forecast-body">
+                <div class="uk-grid-small uk-child-width-expand@s uk-text-center forecast-weather" uk-grid>
+                    <div class="uk-card uk-card-default uk-box-shadow-xlarge">
+                        <div class="uk-card-header">
+                            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                <div class="uk-width-expand forecast-title-dt">
+                                    <h3 class="uk-card-title uk-margin-remove-bottom"></h3>  
+                                    <p class="uk-text-meta uk-margin-remove-top forecast-title"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-card-body forecast-body">
+                            
+                        </div>
                     </div>
                 </div>
             </div>
             <div>
-                <div class="uk-card uk-card-default uk-card-body uk-box-shadow-xlarge">
-                    <div class="uk-width-expand forecast-title-dt">
-                        <h3 class="uk-card-title uk-margin-remove-bottom"></h3>  
-                        <p class="uk-text-meta uk-margin-remove-top forecast-title"></p>
-                    </div>
-                    <hr>
-                    <div class="uk-card-body forecast-body">
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="uk-card uk-card-default uk-card-body uk-box-shadow-xlarge">
-                    <div class="uk-width-expand forecast-title-dt">
-                        <h3 class="uk-card-title uk-margin-remove-bottom"></h3>  
-                        <p class="uk-text-meta uk-margin-remove-top forecast-title"></p>
-                    </div>
-                    <hr>
-                    <div class="uk-card-body forecast-body">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="uk-grid-small uk-child-width-expand@s uk-text-center uk-margin-small-bottom forecast-4-6" uk-grid>
-            <div>
-                <div class="uk-card uk-card-default uk-card-body uk-box-shadow-xlarge">
-                    <div class="uk-width-expand forecast-title-dt">
-                        <h3 class="uk-card-title uk-margin-remove-bottom"></h3>  
-                        <p class="uk-text-meta uk-margin-remove-top forecast-title"></p>
-                    </div>
-                    <hr>
-                    <div class="uk-card-body forecast-body">
+                <div class="uk-grid-small uk-child-width-expand@s uk-text-center forecast-weather" uk-grid>
+                    <div class="uk-card uk-card-default uk-box-shadow-xlarge">
+                        <div class="uk-card-header">
+                            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                <div class="uk-width-expand forecast-title-dt">
+                                    <h3 class="uk-card-title uk-margin-remove-bottom"></h3>  
+                                    <p class="uk-text-meta uk-margin-remove-top forecast-title"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-card-body forecast-body">
+                            
+                        </div>
                     </div>
                 </div>
             </div>
             <div>
-                <div class="uk-card uk-card-default uk-card-body uk-box-shadow-xlarge">
-                    <div class="uk-width-expand forecast-title-dt">
-                        <h3 class="uk-card-title uk-margin-remove-bottom"></h3>  
-                        <p class="uk-text-meta uk-margin-remove-top forecast-title"></p>
-                    </div>
-                    <hr>
-                    <div class="uk-card-body forecast-body">
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="uk-card uk-card-default uk-card-body uk-box-shadow-xlarge">
-                    <div class="uk-width-expand forecast-title-dt">
-                        <h3 class="uk-card-title uk-margin-remove-bottom"></h3>  
-                        <p class="uk-text-meta uk-margin-remove-top forecast-title"></p>
-                    </div>
-                    <hr>
-                    <div class="uk-card-body forecast-body">
+                <div class="uk-grid-small uk-child-width-expand@s uk-text-center forecast-weather" uk-grid>
+                    <div class="uk-card uk-card-default uk-box-shadow-xlarge">
+                        <div class="uk-card-header">
+                            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                <div class="uk-width-expand forecast-title-dt">
+                                    <h3 class="uk-card-title uk-margin-remove-bottom"></h3>  
+                                    <p class="uk-text-meta uk-margin-remove-top forecast-title"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-card-body forecast-body">
+                            
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="uk-grid-small uk-child-width-expand@s uk-text-center uk-margin-small-bottom forecast-1-4" uk-grid>
+            <div>
+                <div class="uk-grid-small uk-child-width-expand@s uk-text-center forecast-weather" uk-grid>
+                    <div class="uk-card uk-card-default uk-box-shadow-xlarge">
+                        <div class="uk-card-header">
+                            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                <div class="uk-width-expand forecast-title-dt">
+                                    <h3 class="uk-card-title uk-margin-remove-bottom"></h3>  
+                                    <p class="uk-text-meta uk-margin-remove-top forecast-title"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-card-body forecast-body">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="uk-grid-small uk-child-width-expand@s uk-text-center forecast-weather" uk-grid>
+                    <div class="uk-card uk-card-default uk-box-shadow-xlarge">
+                        <div class="uk-card-header">
+                            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                <div class="uk-width-expand forecast-title-dt">
+                                    <h3 class="uk-card-title uk-margin-remove-bottom"></h3>  
+                                    <p class="uk-text-meta uk-margin-remove-top forecast-title"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-card-body forecast-body">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="uk-grid-small uk-child-width-expand@s uk-text-center forecast-weather" uk-grid>
+                    <div class="uk-card uk-card-default uk-box-shadow-xlarge">
+                        <div class="uk-card-header">
+                            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                <div class="uk-width-expand forecast-title-dt">
+                                    <h3 class="uk-card-title uk-margin-remove-bottom"></h3>  
+                                    <p class="uk-text-meta uk-margin-remove-top forecast-title"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-card-body forecast-body">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
     </div>
     
     <!-- UIkit JS -->
