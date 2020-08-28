@@ -1,9 +1,10 @@
 .uk-card {
     border-radius: 10px;
-    margin-top: 5px;
+    margin: 5px;
+    margin-bottom: 5px;
     font-size: large;
-    background-color: #3f3d3b;
-    color: white;
+    /* background-color: #3f3d3b; */
+    /* color: white; */
 }
 
 .uk-button {
@@ -28,4 +29,12 @@
 .city:hover {
     background-color: white !important;
     color: black !important;
+}
+
+.weather-icon {
+    size: 10px !important;
+}
+
+#weather-header {
+    text-align: center;
 }
