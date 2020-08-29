@@ -175,7 +175,7 @@ function setNavCities() {
         prevCityBtn.attr("id", index);
         let cityIcon = $("<i class='fas fa-city'></i>");
         prevCityBtn.text(value);
-        prevCityBtn.prepend(cityIcon);
+        // prevCityBtn.prepend(cityIcon);
         searchHistoryDiv.append(prevCityBtn);
     });
 }
