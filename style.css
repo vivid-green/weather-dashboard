@@ -49,7 +49,7 @@
 }
 
 .fa-city {
-    margin-right: 25px;
+    margin-right: 5px;
 }
 
 .current-title {
@@ -63,5 +63,5 @@
 }
 
 .prev-cities {
-    font-size: large;
+    font-size: 0.7vw;
 }
