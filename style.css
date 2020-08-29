@@ -43,7 +43,7 @@
 .pcards {
     background-color: #3f3d3b;
     color: white;
-    font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+    font-size: calc(50px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
 }
 
 #weather-header {
