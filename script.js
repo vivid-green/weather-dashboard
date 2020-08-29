@@ -98,8 +98,24 @@ function setForecast(forecastData) {
     };
 
     $(".current-body").empty();
+    let risk;
     $.each(currentStats, function(index,value) {
-        $(".current-body").append($("<p>" + index + ": " + value + "</p>"));
+        if(index === "UV Index") {
+            let val = value;
+            if(val >= 8) {
+                risk = "very-high";
+            } else if(val > 5) {
+                risk = "high"
+            } else if(val > 2) {
+                risk = "medium"
+            } else {
+                risk = "low"
+            };
+
+            $(".current-body").append($("<p>" + index + ": " + "<span class='uvi-" + risk + "'>" + value + "</span></p>"));
+        } else {
+            $(".current-body").append($("<p>" + index + ": " + value + "</p>"));
+        }
     });
 
     let forecastStats = {};

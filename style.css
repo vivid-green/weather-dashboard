@@ -65,3 +65,35 @@
 .prev-cities {
     font-size: 1.1rem;
 }
+
+.uvi-very-high {
+    background-color: rgb(158, 85, 165);
+    border: 2px solid rgb(158, 85, 165);
+    border-radius: 10px;
+    padding: 5px;
+    color: white;
+}
+
+.uvi-high {
+    background-color: rgb(194, 67, 67);
+    border: 2px solid rgb(194, 67, 67);
+    border-radius: 10px;
+    padding: 5px;
+    color: white;
+}
+
+.uvi-medium {
+    background-color: rgb(241, 217, 81);
+    border: 2px solid rgb(241, 217, 81);
+    border-radius: 10px;
+    padding: 5px;
+    color: black;
+}
+
+.uvi-low {
+    background-color: rgb(115, 206, 122);
+    border: 2px solid rgb(115, 206, 122);
+    border-radius: 10px;
+    padding: 5px;
+    color: black;
+}
