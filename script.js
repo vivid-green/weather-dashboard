@@ -1,6 +1,9 @@
 let ukCloseBtn = $(".uk-offcanvas-close");
 let form = $("form");
+let cityInput = $("#city");
 const apiKey = "6ae39a495699948a3a6ccf26e9ec4520"
+let cities = localStorage.getItem('cities');
+cities = cities ? JSON.parse(cities) : {};
 
 $(window).on("load", getWeather);
 
@@ -50,7 +53,6 @@ function setForecastBody() {
 }
 
 function buildForecastBody(index,dataForecastRow, forecastStats) {
-    console.log(index);
     let forecastElements = setForecastBody();
     let cardContainerDiv = $("<div>");
     let forecastRow = $("#forecast-row-" + dataForecastRow);
@@ -63,8 +65,6 @@ function buildForecastBody(index,dataForecastRow, forecastStats) {
     cardDiv.append(cardHeadDiv);
     let cardGridDiv = forecastElements.cardGridDiv();
     cardHeadDiv.append(cardGridDiv);
-
-
     let forecastIconImg = $("<img class='forecast-weather-icon uk-border-rounded' width='45' height='45'>");
     let forecastIcon = forecastStats[index]["Icon"];
     forecastIconImg.attr("src", "http://openweathermap.org/img/wn/" + forecastIcon + "@2x.png");
@@ -81,8 +81,6 @@ function buildForecastBody(index,dataForecastRow, forecastStats) {
 }
 
 function setForecast(forecastData) {
-    console.log(forecastData);
-    console.log(forecastData.current);
     let date = moment.unix(forecastData.current.dt).format("LL");
     let iconImg = $("<img class='current-weather-icon uk-border-rounded' width='45' height='45'>");
     let icon = forecastData.current.weather[0].icon;
@@ -117,9 +115,7 @@ function setForecast(forecastData) {
             };
         }
     });
-    console.log(forecastStats);
-    // let forecastElements = setForecastBody();
-    // console.log(forecastElements);
+
     $(".forecast").empty();
     $.each(forecastStats,function(index,value) {
         if(index === "1" || index === "4") {
@@ -136,29 +132,6 @@ function setForecast(forecastData) {
             buildForecastBody(index,dataForecastRow,forecastStats);
         }
     });
-
-
-
-    // let forecastCards = $(".forecast-title-dt");
-    // $.each(forecastCards, function(index,value) {
-    //     let forecastBody = $(value).siblings(".forecast-body");
-    //     forecastBody.empty();
-    // });
-    // console.log(forecastCards);
-    // $.each(forecastCards, function(index,value) {
-    //     let forecastIconImg = $("<img class='forecast-weather-icon' width='45' height='45'>");
-    //     let forecastIcon = forecastStats[index + 1]["Icon"];
-    //     forecastIconImg.attr("src", "http://openweathermap.org/img/wn/" + forecastIcon + "@2x.png");
-    //     let h3El = $(value).children("h3");
-    //     // let forecastBody = $(value).siblings(".forecast-body");
-    //     h3El.text(forecastStats[index + 1]["Date"]);
-    //     h3El.append(forecastIconImg);
-    //     // forecastBody.append($("<p>" + "High: " + forecastStats[index + 1]["High"] + "</p>"));
-    //     // forecastBody.append($("<p>" + "Low: " + forecastStats[index + 1]["Low"] + "</p>"));
-    //     // forecastBody.append($("<p>" + "Humidity: " + forecastStats[index + 1]["Humidity"] + "</p>"));
-    //     // forecastBody.append($("<p>" + "Wind Speed: " + forecastStats[index + 1]["Wind Speed"] + "</p>"));
-    // });
-  
     $(".current-weather").css("display", "block");
 }
 
@@ -174,7 +147,7 @@ function getForecast(weatherData) {
 
 function getWeather(event) {
     event.preventDefault();
-    let callType = "weather"
+    let callType = "weather";
     let city = $("#city").val().trim().toUpperCase();
     let params = {q: city, appid: apiKey};
     let weatherUrl = buildUrl(callType,params);
@@ -182,7 +155,41 @@ function getWeather(event) {
         url: weatherUrl,
         method: "GET"
     }).then(getForecast);
-    ukCloseBtn.click()
+
+    let cleanCity = city.toLowerCase().replace(/[^a-zA-Z ]/g, "").replace(/ /g,"-");
+    cities[cleanCity] = city;
+    localStorage.setItem('cities', JSON.stringify(cities));
+    setNavCities();
+    ukCloseBtn.click();
 }
 
+setNavCities();
+
+function setNavCities() {
+    let cities = JSON.parse(localStorage.getItem("cities"));
+    let searchHistoryDiv = $("#search-history");
+    searchHistoryDiv.empty();
+    
+    $.each(cities,function(index,value) {
+        let prevCityBtn = $("<button class='uk-button uk-button-default uk-width-1-1 uk-text-left prev-cities'></button>");
+        prevCityBtn.attr("id", index);
+        let cityIcon = $("<i class='fas fa-city'></i>");
+        prevCityBtn.text(value);
+        prevCityBtn.prepend(cityIcon);
+        searchHistoryDiv.append(prevCityBtn);
+    });
+}
+
+function searchPrev(event) {
+    let city = $("#city");
+    city.val($(this).text());
+    let submitBtn = $("#submitBtn");
+    submitBtn.click();
+};
+
 form.submit(getWeather);
+cityInput.click(function(event) {
+    cityInput.val("");
+});
+
+$(document).on("click",".prev-cities",searchPrev);

@@ -24,6 +24,7 @@
 .search-forecast {
     background-color: #3f3d3b;
     color: white;
+    font-size: x-large;
 }
 
 .city:hover {
@@ -47,4 +48,22 @@
 
 #weather-header {
     text-align: center;
+}
+
+.fa-city {
+    margin-right: 25px;
+}
+
+.current-title {
+    font-size: large;
+    font-weight: 500;
+}
+
+.forecast-title-dt {
+    font-size: large;
+    font-weight: 500;
+}
+
+.prev-cities {
+    font-size: large;
 }
