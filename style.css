@@ -3,8 +3,6 @@
     margin: 5px;
     margin-bottom: 5px;
     font-size: large;
-    /* background-color: rgb(234, 238, 202); */
-    /* color: white; */
 }
 
 .uk-button {
@@ -43,7 +41,7 @@
 .pcards {
     background-color: #3f3d3b;
     color: white;
-    font-size: xx-large;
+    font-size: 8vw;
 }
 
 #weather-header {
