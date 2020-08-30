@@ -1,3 +1,4 @@
+//Declaring variables for apikey, localstorage and storing jquery form and closebtn elements.
 let ukCloseBtn = $(".uk-offcanvas-close");
 let form = $("form");
 let cityInput = $("#city");
@@ -5,14 +6,17 @@ const apiKey = "6ae39a495699948a3a6ccf26e9ec4520"
 let cities = localStorage.getItem('cities');
 cities = cities ? JSON.parse(cities) : {};
 
+//On load invoke getWeather function to pull current and forecast weather via open weather api.
 $(window).on("load", getWeather);
 
+//Function to build url for api call.
 function buildUrl(callType,params) {
     let urlBase = "https://api.openweathermap.org/data/2.5/";
     let weatherUrl = urlBase + callType + "?" + $.param(params);
     return weatherUrl;
 }
 
+//Function that builds object containing methods to create html elements with jquery.
 function setForecastBody() {
     let forecastElements = {
         weatherHeader : function() { 
@@ -51,7 +55,7 @@ function setForecastBody() {
     };
     return forecastElements;
 }
-
+//Function that sets all the html elements reference buy the function above that builds the object containing the methods to create html elements. 
 function buildForecastBody(index,dataForecastRow, forecastStats) {
     let forecastElements = setForecastBody();
     let cardContainerDiv = $("<div>");
@@ -79,7 +83,7 @@ function buildForecastBody(index,dataForecastRow, forecastStats) {
     cardBodyDiv.append($("<p>" + "Humidity: " + forecastStats[index]["Humidity"] + "</p>"));
     cardBodyDiv.append($("<p>" + "Wind Speed: " + forecastStats[index]["Wind Speed"] + "</p>"));
 }
-
+//Function to dynamically create and append html elements to the DOM for 6 day weather forcast section of the DOM.
 function setForecast(forecastData) {
     let date = moment.unix(forecastData.current.dt).format("LL");
     let iconImg = $("<img class='current-weather-icon uk-border-rounded' width='45' height='45' alt='Weather Condition Icon'>");
@@ -150,7 +154,7 @@ function setForecast(forecastData) {
     });
     $(".current-weather").css("display", "block");
 }
-
+//Function containing API call to open weather to obtain current and forecasted weather data.
 function getForecast(weatherData) {
     let callType = "onecall"
     let params = {lat: weatherData.coord.lat, lon: weatherData.coord.lon, appid: apiKey};
@@ -160,7 +164,7 @@ function getForecast(weatherData) {
         method: "GET"
     }).then(setForecast);
 }
-
+//Function containing API call to get current weather data and pass params for the getForcast() function which is invoked in the api promise callback.
 function getWeather(event) {
     event.preventDefault();
     let callType = "weather";
@@ -178,9 +182,9 @@ function getWeather(event) {
     setNavCities();
     ukCloseBtn.click();
 }
-
+//Invoking function to populate previously searched city buttons in the nav.
 setNavCities();
-
+//Function to dynamically build previously searched cities from local storage.
 function setNavCities() {
     let cities = JSON.parse(localStorage.getItem("cities"));
     let searchHistoryDiv = $("#search-history");
@@ -195,17 +199,17 @@ function setNavCities() {
         searchHistoryDiv.append(prevCityBtn);
     });
 }
-
+//Function to fire off search button to dynamically append DOM with dynamically created html elements based on API data when previously searched on city button is clicked.
 function searchPrev(event) {
     let city = $("#city");
     city.val($(this).text());
     let submitBtn = $("#submitBtn");
     submitBtn.click();
 };
-
+//Event Listener to clear form input when clicked on to allow easy entry for another value.
 form.submit(getWeather);
 cityInput.click(function(event) {
     cityInput.val("");
 });
-
+//Event listener to fire off functionaly to dynamically append DOM with forecast API data when previously searched city buttons are clicked.
 $(document).on("click",".prev-cities",searchPrev);
