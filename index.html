@@ -9,49 +9,57 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="uk-height-large uk-background-cover uk-overflow-hidden uk-light uk-flex" style="background-image: url('./assets/img/sunset.JPG');">
-        <div class="uk-grid uk-margin-auto uk-flex-inline">
-            <div><div class="uk-card uk-card-default uk-width-expand uk-padding-small pcards" uk-parallax="y: 200; easing: -2">F</div></div>
-            <div><div class="uk-card uk-card-default uk-width-expand uk-padding-small pcards" uk-parallax="y: 200; easing: -1">O</div></div>
-            <div><div class="uk-card uk-card-default uk-width-expand uk-padding-small pcards" uk-parallax="y: 200; easing: -0.5">R</div></div>
-            <div><div class="uk-card uk-card-default uk-width-expand uk-padding-small pcards" uk-parallax="y: 200; easing: 0">E</div></div>
-            <div><div class="uk-card uk-card-default uk-width-expand uk-padding-small pcards" uk-parallax="y: 200; easing: 0.5">C</div></div>
-            <div><div class="uk-card uk-card-default uk-width-expand uk-padding-small pcards" uk-parallax="y: 200; easing: 1">A</div></div>
-            <div><div class="uk-card uk-card-default uk-width-expand uk-padding-small pcards" uk-parallax="y: 200; easing: 2">S</div></div>
-            <div><div class="uk-card uk-card-default uk-width-expand uk-padding-small pcards" uk-parallax="y: 200; easing: 3">T</div></div>
-        </div>
-    </div>
-    <button class="uk-button uk-button-default uk-margin-small-right search-forecast" type="button" uk-toggle="target: #offcanvas-push"><i class="fas fa-sun"></i> Search Forecast</button>
-    <div id="offcanvas-push" uk-offcanvas="mode: push; overlay: true">
-        <div class="uk-offcanvas-bar">
-            <button class="uk-offcanvas-close" type="button" uk-close></button>
-            <form class="search-form">
-                <div class="uk-margin">
-                    <input id="city" class="uk-input city" type="text" placeholder="Timbuktu" value="SALT LAKE CITY">
-                    <button id="submitBtn" type="submit" class="uk-button uk-button-default uk-margin-small-bottom"><i class="fas fa-search"></i></button>
-                </div>
-            </form>
-            <div id="search-history">
+    <header>
+        <div class="uk-height-large uk-background-cover uk-overflow-hidden uk-light uk-flex" style="background-image: url('./assets/img/sunset.JPG');" alt="Sunset Image">
+            <div class="uk-grid uk-margin-auto uk-flex-inline">
+                <div><div class="uk-card uk-card-default uk-width-expand uk-padding-small pcards" uk-parallax="y: 200; easing: -2">F</div></div>
+                <div><div class="uk-card uk-card-default uk-width-expand uk-padding-small pcards" uk-parallax="y: 200; easing: -1">O</div></div>
+                <div><div class="uk-card uk-card-default uk-width-expand uk-padding-small pcards" uk-parallax="y: 200; easing: -0.5">R</div></div>
+                <div><div class="uk-card uk-card-default uk-width-expand uk-padding-small pcards" uk-parallax="y: 200; easing: 0">E</div></div>
+                <div><div class="uk-card uk-card-default uk-width-expand uk-padding-small pcards" uk-parallax="y: 200; easing: 0.5">C</div></div>
+                <div><div class="uk-card uk-card-default uk-width-expand uk-padding-small pcards" uk-parallax="y: 200; easing: 1">A</div></div>
+                <div><div class="uk-card uk-card-default uk-width-expand uk-padding-small pcards" uk-parallax="y: 200; easing: 2">S</div></div>
+                <div><div class="uk-card uk-card-default uk-width-expand uk-padding-small pcards" uk-parallax="y: 200; easing: 3">T</div></div>
             </div>
         </div>
-    </div>
-    <div class="uk-grid-small uk-child-width-expand@s uk-text-center current-weather" style="display: none;" uk-grid>
-        <div class="uk-card uk-card-default uk-box-shadow-xlarge">
-            <div class="uk-card-header">
-                <div class="uk-grid-small uk-flex-middle" uk-grid>
-                    <div class="uk-width-expand current-title-dt">
-                        <h3 class="uk-card-title uk-margin-remove-bottom"></h3>  
-                        <p class="uk-text-meta uk-margin-remove-top current-title"></p>
+    </header>
+    <nav>
+        <button class="uk-button uk-button-default uk-margin-small-right search-forecast" type="button" uk-toggle="target: #offcanvas-push"><i class="fas fa-sun"></i> Search Forecast</button>
+        <div id="offcanvas-push" uk-offcanvas="mode: push; overlay: true">
+            <div class="uk-offcanvas-bar">
+                <button class="uk-offcanvas-close" type="button" uk-close></button>
+                <form class="search-form">
+                    <div class="uk-margin">
+                        <input id="city" class="uk-input city" type="text" placeholder="Timbuktu" value="SALT LAKE CITY">
+                        <button id="submitBtn" type="submit" class="uk-button uk-button-default uk-margin-small-bottom"><i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+                <div id="search-history">
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section>
+        <div class="uk-grid-small uk-child-width-expand@s uk-text-center current-weather" style="display: none;" uk-grid>
+            <div class="uk-card uk-card-default uk-box-shadow-xlarge">
+                <div class="uk-card-header">
+                    <div class="uk-grid-small uk-flex-middle" uk-grid>
+                        <div class="uk-width-expand current-title-dt">
+                            <h3 class="uk-card-title uk-margin-remove-bottom"></h3>  
+                            <p class="uk-text-meta uk-margin-remove-top current-title"></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="uk-card-body current-body">
+                <div class="uk-card-body current-body">
+                </div>
             </div>
         </div>
-    </div>
+    </section>
     <hr>
-    <div class="forecast">
-    </div>
+    <section>
+        <div class="forecast">
+        </div>
+    </section>
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.6/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.6/dist/js/uikit-icons.min.js"></script>
