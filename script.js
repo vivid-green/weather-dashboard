@@ -71,7 +71,7 @@ function buildForecastBody(index,dataForecastRow, forecastStats) {
     cardHeadDiv.append(cardGridDiv);
     let forecastIconImg = $("<img class='forecast-weather-icon uk-border-rounded' width='45' height='45' alt='Weather Condition Icon'>");
     let forecastIcon = forecastStats[index]["Icon"];
-    forecastIconImg.attr("src", "http://openweathermap.org/img/wn/" + forecastIcon + "@2x.png");
+    forecastIconImg.attr("src", "https://openweathermap.org/img/wn/" + forecastIcon + "@2x.png");
     let titleDtDiv = forecastElements.titleDtDiv();
     titleDtDiv.text(forecastStats[index]["Date"] + "  ");
     cardGridDiv.append(titleDtDiv);
@@ -88,7 +88,7 @@ function setForecast(forecastData) {
     let date = moment.unix(forecastData.current.dt).format("LL");
     let iconImg = $("<img class='current-weather-icon uk-border-rounded' width='45' height='45' alt='Weather Condition Icon'>");
     let icon = forecastData.current.weather[0].icon;
-    iconImg.attr("src", "http://openweathermap.org/img/wn/" + icon + "@2x.png");
+    iconImg.attr("src", "https://openweathermap.org/img/wn/" + icon + "@2x.png");
     let title = $(".current-title-dt h3");
     let city = $("#city").val().trim().toUpperCase();
     title.text(city + "  ");
